@@ -11,11 +11,11 @@ namespace XShop.Models
     public class Item
     {
         public string Id { get; set; }
-        public string Category { get; set; }
 
         [StringLength(20)]
         [DisplayName("Item Name")]
         public string Name { get; set; }
+        public string Category { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
         [Range(0, 1000)]

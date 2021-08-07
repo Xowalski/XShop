@@ -174,6 +174,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemManagerController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,6 +274,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\ItemManager\Index.cshtml" />
+    <Content Include="Views\ItemManager\Edit.cshtml" />
+    <Content Include="Views\ItemManager\Delete.cshtml" />
+    <Content Include="Views\ItemManager\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +292,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XShop.DataAccess.Memory\XShop.DataAccess.Memory.csproj">
+      <Project>{f78bd582-8b0c-41db-b5d1-7cf55b6a004b}</Project>
+      <Name>XShop.DataAccess.Memory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XShop.DataAccess.SQL\XShop.DataAccess.SQL.csproj">
+      <Project>{d3b8b782-6c5f-44eb-b635-9cbb8181bd86}</Project>
+      <Name>XShop.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XShop.Model\XShop.csproj">
+      <Project>{0d4100fe-b110-4941-8498-abb26f4f7947}</Project>
+      <Name>XShop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XShop.Services\XShop.Services.csproj">
+      <Project>{41d14dfa-eb4b-4fbd-9d33-0964bc6b396c}</Project>
+      <Name>XShop.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
