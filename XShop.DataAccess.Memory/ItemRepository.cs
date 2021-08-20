@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Caching;
-using XShop.Models;
+using XShop.Model.Models;
 
 namespace XShop.DataAccess.Memory
 {

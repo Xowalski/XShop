@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XShop.Models
+namespace XShop.Model.Models
 {
     public class Item
     {
