@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace XShop.Model.Models
 {
-    public class Item
+    public class Item : BaseEntity
     {
-        public string Id { get; set; }
-
         [StringLength(20)]
         [DisplayName("Item Name")]
         public string Name { get; set; }
@@ -20,10 +18,5 @@ namespace XShop.Model.Models
         public string Description { get; set; }
         [Range(0, 1000)]
         public decimal Price { get; set; }
-
-        public Item()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
     }
 }

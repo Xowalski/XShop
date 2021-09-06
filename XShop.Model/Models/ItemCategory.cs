@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace XShop.Model.Models
 {
-    public class ItemCategory
+    public class ItemCategory : BaseEntity
     {
-        public string Id { get; set; }
         public string Category { get; set; }
-        public ItemCategory()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
     }
 }

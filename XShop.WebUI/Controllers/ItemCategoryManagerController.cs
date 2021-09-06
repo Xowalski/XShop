@@ -10,11 +10,11 @@ namespace XShop.WebUI.Controllers
 {
     public class ItemCategoryManagerController : Controller
     {
-        ItemCategoryRepository context;
+        MemoryRepository<ItemCategory> context;
 
         public ItemCategoryManagerController()
         {
-            context = new ItemCategoryRepository();
+            context = new MemoryRepository<ItemCategory>();
         }
 
         // GET: ItemManager
