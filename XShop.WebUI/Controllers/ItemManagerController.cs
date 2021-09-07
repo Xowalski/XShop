@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using XShop.Models;
+using XShop.Model.Models;
 using XShop.DataAccess.Memory;
+using XShop.Model.ViewModels;
+using XShop.Model.Contracts;
 
 namespace XShop.WebUI.Controllers
 {
     public class ItemManagerController : Controller
     {
-        ItemRepository context;
+        IRepository<Item> context;
+        IRepository<ItemCategory> itemCategories;
 
-        public ItemManagerController()
+        public ItemManagerController(IRepository<Item> contextItem, IRepository<ItemCategory> contextItemCategory)
         {
-            context = new ItemRepository();
+            context = contextItem;
+            itemCategories = contextItemCategory;
         }
 
         // GET: ItemManager
@@ -26,8 +30,11 @@ namespace XShop.WebUI.Controllers
 
         public ActionResult Create()
         {
-            Item item = new Item();
-            return View(item);
+            ItemManagerViewModel viewModel = new ItemManagerViewModel();
+
+            viewModel.Item = new Item();
+            viewModel.ItemCategories = itemCategories.Collection();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -54,7 +61,10 @@ namespace XShop.WebUI.Controllers
             }
             else
             {
-                return View(item);
+                ItemManagerViewModel viewModel = new ItemManagerViewModel();
+                viewModel.Item = item;
+                viewModel.ItemCategories = itemCategories.Collection();
+                return View(viewModel);
             }
         }
 

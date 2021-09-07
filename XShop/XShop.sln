@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XShop", "..\XShop.Model\XShop.csproj", "{0D4100FE-B110-4941-8498-ABB26F4F7947}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XShop.Model", "..\XShop.Model\XShop.Model.csproj", "{0D4100FE-B110-4941-8498-ABB26F4F7947}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XShop.Services", "..\XShop.Services\XShop.Services.csproj", "{41D14DFA-EB4B-4FBD-9D33-0964BC6B396C}"
 EndProject

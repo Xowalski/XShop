@@ -42,13 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemRepository.cs" />
+    <Compile Include="MemoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XShop.Model\XShop.csproj">
+    <ProjectReference Include="..\XShop.Model\XShop.Model.csproj">
       <Project>{0d4100fe-b110-4941-8498-abb26f4f7947}</Project>
-      <Name>XShop</Name>
+      <Name>XShop.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
