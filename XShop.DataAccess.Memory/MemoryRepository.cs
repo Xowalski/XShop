@@ -4,11 +4,12 @@ using System.Linq;
 using System.Runtime.Caching;
 using System.Text;
 using System.Threading.Tasks;
+using XShop.Model.Contracts;
 using XShop.Model.Models;
 
 namespace XShop.DataAccess.Memory
 {
-    public class MemoryRepository<T> where T : BaseEntity
+    public class MemoryRepository<T> : IRepository<T> where T : BaseEntity
     {
         ObjectCache cache = MemoryCache.Default;
         List<T> items;
