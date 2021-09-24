@@ -16,7 +16,7 @@ namespace XShop.DataAccess.SQL
 
         }
 
-        public DbSet<Item> Products { get; set; }
-        public DbSet<ItemCategory> ProductCategories { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<ItemCategory> ItemCategories { get; set; }
     }
 }

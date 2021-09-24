@@ -4,17 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using XShop.DataAccess.Memory;
+using XShop.Model.Contracts;
 using XShop.Model.Models;
 
 namespace XShop.WebUI.Controllers
 {
     public class ItemCategoryManagerController : Controller
     {
-        MemoryRepository<ItemCategory> context;
+        IRepository<ItemCategory> context;
 
-        public ItemCategoryManagerController()
+        public ItemCategoryManagerController(IRepository<ItemCategory> context)
         {
-            context = new MemoryRepository<ItemCategory>();
+            this.context = context;
         }
 
         // GET: ItemManager
