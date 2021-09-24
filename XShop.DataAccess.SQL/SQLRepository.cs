@@ -37,7 +37,6 @@ namespace XShop.DataAccess.SQL
             {
                 dbSet.Attach(t);
             }
-
             dbSet.Remove(t);
         }
 
