@@ -2,6 +2,7 @@ using System;
 
 using Unity;
 using XShop.DataAccess.Memory;
+using XShop.DataAccess.SQL;
 using XShop.Model.Contracts;
 using XShop.Model.Models;
 
@@ -46,8 +47,8 @@ namespace XShop.WebUI
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
 
-            container.RegisterType<IRepository<Item>, MemoryRepository<Item>>();
-            container.RegisterType<IRepository<ItemCategory>, MemoryRepository<ItemCategory>>();
+            container.RegisterType<IRepository<Item>, SQLRepository<Item>>();
+            container.RegisterType<IRepository<ItemCategory>, SQLRepository<ItemCategory>>();
 
         }
     }
