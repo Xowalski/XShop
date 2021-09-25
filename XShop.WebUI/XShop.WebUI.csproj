@@ -303,6 +303,7 @@
     <Content Include="Views\ItemCategoryManager\Create.cshtml" />
     <Content Include="Views\ItemCategoryManager\Edit.cshtml" />
     <Content Include="Views\ItemCategoryManager\Delete.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

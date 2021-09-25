@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using XShop.Model.Contracts;
+using XShop.Model.Models;
 
 namespace XShop.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        IRepository<Item> context;
+        IRepository<ItemCategory> itemCategories;
+
+        public HomeController(IRepository<Item> contextItem, IRepository<ItemCategory> contextItemCategory)
+        {
+            context = contextItem;
+            itemCategories = contextItemCategory;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            List<Item> items = context.Collection().ToList();
+            return View(items);
         }
 
         public ActionResult About()
@@ -25,6 +37,19 @@ namespace XShop.WebUI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Details(string Id)
+        {
+            Item item = context.Find(Id);
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(item);
+            }
         }
     }
 }
