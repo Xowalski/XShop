@@ -7,6 +7,7 @@ using XShop.Model.Models;
 using XShop.DataAccess.Memory;
 using XShop.Model.ViewModels;
 using XShop.Model.Contracts;
+using System.IO;
 
 namespace XShop.WebUI.Controllers
 {
@@ -38,7 +39,7 @@ namespace XShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Item item)
+        public ActionResult Create(Item item, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -46,6 +47,11 @@ namespace XShop.WebUI.Controllers
             }
             else
             {
+                if (file != null)
+                {
+                    item.Image = item.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ItemImages//") + item.Image);
+                }
                 context.Insert(item);
                 context.Commit();
                 return RedirectToAction(nameof(Index)); //todo nameof albo cudzysłów - uspójnić
@@ -69,9 +75,10 @@ namespace XShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Item item, string Id)
+        public ActionResult Edit(Item item, string Id, HttpPostedFileBase file)
         {
             Item itemToEdit = context.Find(Id);
+
             if (itemToEdit == null)
             {
                 return HttpNotFound();
@@ -83,9 +90,14 @@ namespace XShop.WebUI.Controllers
                     return View(item);
                 }
 
+                if (file != null)
+                {
+                    itemToEdit.Image = item.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//ItemImages//") + itemToEdit.Image);
+                }
+
                 itemToEdit.Name = item.Name;
                 itemToEdit.Category = item.Category;
-                itemToEdit.Image = item.Image;
                 itemToEdit.Description = item.Description;
                 itemToEdit.Price = item.Price;
 
