@@ -1,28 +1,41 @@
-﻿@model IEnumerable<XShop.Model.Models.Item>
+﻿@model XShop.Model.ViewModels.ItemListViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
 <h1>Items</h1>
 
-@foreach(var item in Model)
-{
-<div class="col-md-4" style="height:440px;width:440px;padding:12px;margin:12px;border:solid thin ivory">
-    <div class="col-md-12">
-        <img class="img" style="height:270px;max-width:400px" src="~/Content/ItemImages/@item.Image" />
-    </div>
-    <div class="col-md-12">
-        <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id })</strong>
-    </div>
-    <div class="col-md-12">
-        <p>@item.Description</p>
-    </div>
-    <div class="col-md-12">
-        <h4>@item.Price</h4>
-    </div>
-    <div class="col-md-12">
-        <a href="#" class="btn btn-default">Add to basket</a>
+<div class="col-md-2">
+    <h4>Filter by categories</h4>
+    <div class="list-group">
+        @Html.ActionLink("All", "Index", null, new { @class = Request["Category"] == null ? "list-group-item active" : "list-group-item" })
+        @foreach(var cat in Model.ItemCategories)
+            {
+            @Html.ActionLink(cat.Category, "Index", new {Category=cat.Category}, new { @class = Request["Category"] == cat.Category ? "list-group-item active" : "list-group-item" })
+            }
     </div>
 </div>
- }
-<div class="cold-md-12 clearfix"/>
+<div class="col-md-10">
+
+    @foreach (var item in Model.Items)
+    {
+        <div class="col-md-4" style="height:440px;width:440px;padding:12px;margin:12px;border:solid thin ivory">
+            <div class="col-md-12">
+                <img class="img" style="height:270px;max-width:400px" src="~/Content/ItemImages/@item.Image" />
+            </div>
+            <div class="col-md-12">
+                <strong>@Html.ActionLink(item.Name, "Details", new { id = item.Id })</strong>
+            </div>
+            <div class="col-md-12">
+                <p>@item.Description</p>
+            </div>
+            <div class="col-md-12">
+                <h4>@item.Price</h4>
+            </div>
+            <div class="col-md-12">
+                <a href="#" class="btn btn-default">Add to basket</a>
+            </div>
+        </div>
+    }
+</div>
+    <div class="col-md-12 clearfix" />

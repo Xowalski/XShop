@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using XShop.Model.Contracts;
 using XShop.Model.Models;
+using XShop.Model.ViewModels;
 
 namespace XShop.WebUI.Controllers
 {
@@ -19,10 +20,25 @@ namespace XShop.WebUI.Controllers
             itemCategories = contextItemCategory;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string Category = null)
         {
-            List<Item> items = context.Collection().ToList();
-            return View(items);
+            List<Item> items;
+            List<ItemCategory> categories = itemCategories.Collection().ToList();
+
+            if (Category == null)
+            {
+                items = context.Collection().ToList();
+            }
+            else
+            {
+                items = context.Collection().Where(p => p.Category == Category).ToList();
+            }
+
+            ItemListViewModel viewModel = new ItemListViewModel();
+            viewModel.Items = items;
+            viewModel.ItemCategories = categories;
+
+            return View(viewModel);
         }
 
         public ActionResult About()
