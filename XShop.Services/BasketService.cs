@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using XShop.Contracts;
 using XShop.Model.Contracts;
 using XShop.Model.Models;
 using XShop.Model.ViewModels;
@@ -82,6 +81,7 @@ namespace XShop.Services
             HttpCookie cookie = new HttpCookie(BasketSessionName);
             cookie.Value = basket.Id;
             cookie.Expires = DateTime.Now.AddDays(1);
+            httpContext.Response.Cookies.Add(cookie);
 
             return basket;
         }

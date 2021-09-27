@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using XShop.Model.ViewModels;
 
-namespace XShop.Contracts
+namespace XShop.Model.Contracts
 {
     public interface IBasketService
     {

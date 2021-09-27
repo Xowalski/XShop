@@ -1,10 +1,9 @@
 using System;
-
 using Unity;
-using XShop.DataAccess.Memory;
 using XShop.DataAccess.SQL;
 using XShop.Model.Contracts;
 using XShop.Model.Models;
+using XShop.Services;
 
 namespace XShop.WebUI
 {
@@ -49,7 +48,9 @@ namespace XShop.WebUI
 
             container.RegisterType<IRepository<Item>, SQLRepository<Item>>();
             container.RegisterType<IRepository<ItemCategory>, SQLRepository<ItemCategory>>();
-
+            container.RegisterType<IRepository<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
         }
     }
 }
