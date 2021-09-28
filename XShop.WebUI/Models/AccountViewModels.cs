@@ -79,6 +79,18 @@ namespace XShop.WebUI.Models
         [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string SurName { get; set; }
+        [Required]
+        public string Street { get; set; }
+        [Required]
+        public string City { get; set; }
+        public string Country { get; set; }
+        [Required]
+        public string ZipCode { get; set; }
     }
 
     public class ResetPasswordViewModel
