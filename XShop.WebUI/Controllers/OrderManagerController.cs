@@ -8,6 +8,7 @@ using XShop.Model.Models;
 
 namespace XShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderManagerController : Controller
     {
         IOrderService orderService;

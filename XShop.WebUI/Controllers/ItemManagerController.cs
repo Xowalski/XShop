@@ -11,6 +11,7 @@ using System.IO;
 
 namespace XShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ItemManagerController : Controller
     {
         IRepository<Item> context;

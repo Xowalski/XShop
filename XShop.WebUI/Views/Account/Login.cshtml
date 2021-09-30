@@ -1,7 +1,7 @@
 ﻿@using XShop.WebUI.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Zaloguj";
+    ViewBag.Title = "Login";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -11,7 +11,9 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Zaloguj się za pomocą konta lokalnego.</h4>
+            <h4>
+                Log in with your local account.
+            </h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -38,16 +40,12 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Zaloguj" class="btn btn-default" />
+                        <input type="submit" value="Login" class="btn btn-default" />
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Zarejestruj się jako nowy użytkownik", "Register")
+                    @Html.ActionLink("Register as a new user", "Register")
                 </p>
-                @* Włącz ten element po włączeniu potwierdzenia konta dla funkcji resetowania hasła
-                    <p>
-                        @Html.ActionLink("Nie pamiętasz hasła?", "ForgotPassword")
-                    </p>*@
             }
         </section>
     </div>
