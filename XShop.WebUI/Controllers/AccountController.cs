@@ -156,13 +156,14 @@ namespace XShop.WebUI.Controllers
                     //register customer model
                     Customer customer = new Customer()
                     {
+                        UserId = user.Id,
                         FirstName = model.FirstName,
                         SurName = model.SurName,
+                        Email = model.Email,
                         Street = model.Street,
                         City = model.City,
                         Country = model.Country,
-                        ZipCode = model.ZipCode,
-                        UserId = user.Id
+                        ZipCode = model.ZipCode
                     };
 
                     customerRepository.Insert(customer);

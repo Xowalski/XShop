@@ -22,9 +22,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Zarządzanie produktem", "Index", "ItemManager")</li>
-                    <li>@Html.ActionLink("Zarządzanie kategoriami", "Index", "ItemCategoryManager")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
                 @{ Html.RenderAction("BasketSummary", "Basket"); }
