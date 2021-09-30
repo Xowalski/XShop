@@ -66,7 +66,7 @@ namespace XShop.WebUI.Controllers
             }
             else
             {
-                return RedirectToAction("Error");
+                return RedirectToAction("Register", "Account");
             }
         }
 
